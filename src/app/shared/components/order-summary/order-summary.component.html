@@ -1,0 +1,40 @@
+<div class="row h-100" *ngIf="order">
+  <div class="col-6 hidden-md-down">
+    <div class="card h-100">
+      <div class="card-block">
+        <h4 class="card-title">Shipping Details</h4>
+        <hr class="divider">
+        <p class="card-text">
+          <strong>Customer name:</strong> {{ order.shipping.name }}
+          <br/>
+          <strong>Address:</strong> {{ order.shipping.addressLine1 }} - {{ order.shipping.addressLine2 }}
+          <br/>
+          <strong>City:</strong> {{ order.shipping.city }}
+          <br />
+          <strong>Date:</strong> {{ order.datePlaced | date:'yyyy-MM-dd HH:mm' }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 hidden-md-down">
+    <div class="card h-100">
+      <div class="card-block">
+        <h4 class="card-title">Order Summary</h4>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let item of order.items" class="list-group-item">
+            {{ item.quantity }} x {{ item.product.title }}
+            <div class="float-right">
+              {{ item.totalPrice | currency:'USD':2 }}
+            </div>
+          </li>
+          <li class="list-group-item font-weight-bold">
+            Total
+            <div class="float-right">
+              {{ order.totalPrice | currency:'USD':2 }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

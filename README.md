@@ -1,27 +1,25 @@
-# Oshop
+# Organic Shop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+This is a simple e-commerce application built with Angular, Firebase and Bootstrap 4, as the final project for the course ["The Complete Angular Master Class"](https://codewithmosh.teachable.com/p/angular-master-class/), created by Mosh Hamedani. The intent of the project is to show how a real world Angular application is.
 
-## Development server
+This version was adapted to Angular 5 in order to handle version mismatches, and it contains new components and customizations.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+This is an Angular project with:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Firebase Realtime Database](https://firebase.google.com/products/database/) (implemented with [angularfire2](https://github.com/angular/angularfire2))
+- [Bootsrap 4](https://getbootstrap.com/) (implemented with [NG Bootstrap](https://ng-bootstrap.github.io/))
+- [Font Awesome](https://fontawesome.com/)
+- [Angular 5 data table](https://github.com/ggmod/angular-5-data-table)
+- [RxJS](http://reactivex.io/)
 
-## Build
+## Configuration
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Make sure to create a Firebase project and to change the environment settings in /src/environments with your own project configuration data, in order to run this project. You can use [Firebase tools](https://github.com/firebase/firebase-tools) to init and deploy the application.
 
-## Running unit tests
+After creating the Firebase project, import the file "oshop-database.json" that is in the root folder of the application to populate the database with initial data.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running the application
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+After creating the Firebase project and configuring the application with your custom settings, run `ng serve` to start a development server. Navigate to `localhost:4200` to see the app running.

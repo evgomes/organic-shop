@@ -1,0 +1,42 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+
+<p>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..." />
+</p>
+
+
+<data-table [items]="items" 
+            [itemCount]="itemCount"
+            [substituteRows]="false"
+            [indexColumn]="false"
+            [noDataMessage]="'No products found.'"
+            (reload)="reloadItems($event)">
+  
+  <data-table-column
+    [property]="'imageUrl'">
+    <ng-template #dataTableCell let-item="item">
+      <div class="thumbnail align-middle">
+        <img [src]="item.imageUrl" [alt]="item.title">
+      </div>
+    </ng-template>
+  </data-table-column>
+  
+  <data-table-column 
+    [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true" >
+  </data-table-column>
+
+  <data-table-column 
+    [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
+    <ng-template #dataTableCell let-item="item">
+      {{ item.price | currency:'USD':2 }}
+    </ng-template>
+  </data-table-column>  
+
+    <data-table-column [property]="'key'">
+      <ng-template #dataTableCell let-item="item">
+        <a [routerLink]="['/admin/products/', item.key]">Edit</a>
+      </ng-template>
+    </data-table-column>
+</data-table>

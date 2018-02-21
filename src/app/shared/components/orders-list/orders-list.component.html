@@ -1,0 +1,37 @@
+<p>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..." />
+</p>
+
+
+<data-table [items]="items" 
+            [itemCount]="itemCount" 
+            [substituteRows]="false" 
+            [indexColumn]="false" 
+            [noDataMessage]="'No orders found.'"
+            (reload)="reloadItems($event)">
+
+  <data-table-column [property]="'shipping.name'" [header]="'Customer'" [sortable]="true" [resizable]="true">
+    <ng-template #dataTableCell let-item="item">
+      {{ item.shipping.name }}
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column [property]="'datePlaced'" [header]="'Date'" [sortable]="true" [resizable]="true">
+    <ng-template #dataTableCell let-item="item">
+      {{ item.datePlaced | date:'yyyy-MM-dd HH:mm' }}
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column [property]="'totalPrice'" [header]="'Total Price'" [sortable]="true" [resizable]="true">
+    <ng-template #dataTableCell let-item="item">
+      {{ item.totalPrice | currency:'USD':2 }}
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column [property]="'key'">
+    <ng-template #dataTableCell let-item="item">
+      <a [routerLink]="['/order-details/', item.key]">View</a>
+    </ng-template>
+  </data-table-column>
+
+</data-table>
